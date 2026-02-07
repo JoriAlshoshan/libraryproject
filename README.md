@@ -20,3 +20,11 @@ This project is a Django web application created as part of an academic lab.
 2. Run the server:
    ```bash
    python manage.py runserver
+3. Open browser at:
+   ```bash
+   http://127.0.0.1:8000/
+
+Author
+
+Jori Alshoshan
+3ز
