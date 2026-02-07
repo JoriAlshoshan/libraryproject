@@ -25,3 +25,4 @@ This project is a Django web application created as part of an academic lab.
    http://127.0.0.1:8000/
 
 ## Author
+Jori Alshoshan
