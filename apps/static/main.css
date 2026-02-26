@@ -1,0 +1,70 @@
+/* =======================
+   Base Link Style
+======================= */
+a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+/* =======================
+   Box Styles
+======================= */
+.box1 {
+    background: lightgreen;
+    color: red;
+}
+
+.box2 {
+    background: gray;
+    color: yellow;
+}
+
+.box3 {
+    background: black;
+    color: white;
+}
+
+/* =======================
+   Link States (LVHA)
+======================= */
+
+/* visited */
+a:visited {
+    color: purple;
+}
+
+/* hover */
+a:hover {
+    color: blue;
+}
+
+/* active */
+a:active {
+    color: red;
+}
+
+h1 {
+    background: #e6e2c3;
+    color: green;
+    padding: 15px;
+    /* text-align: center; */
+    /* font-weight: bold; */
+    font-size: 32px;
+}
+body {
+    margin: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.listing-title {
+    background: #6aa5a5;
+    color: white;
+    padding: 15px;
+    font-size: 32px;
+}
