@@ -7,8 +7,7 @@
 
 {% if books %}
 {% for obj in books %}
-    ID: {{obj.id}}, Title: {{obj.title}}
-    <hr>
+ID: {{obj.id}}, Title: {{obj.title}}, Author: {{obj.author}}, Edition: {{obj.edition}}, Price: {{obj.price}}    <hr>
 {% endfor %}
 
 {% else %}
