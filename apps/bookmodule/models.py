@@ -1,6 +1,6 @@
 from django.db import models
 
-# LAB 8
+# LAB 7
 class Book(models.Model):
     title = models.CharField(max_length = 50)
     author = models.CharField(max_length = 50)
