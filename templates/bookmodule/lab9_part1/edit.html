@@ -1,0 +1,23 @@
+<h1>Edit Book</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ book.title }}" required><br><br>
+
+    <label>Author:</label>
+    <input type="text" name="author" value="{{ book.author }}" required><br><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" value="{{ book.price }}" required><br><br>
+
+    <label>Edition:</label>
+    <input type="number" name="edition" value="{{ book.edition }}" required><br><br>
+
+    <button type="submit">Update Book</button>
+</form>
+
+<br>
+
+<a href="{% url 'list_books' %}">Back to Books List</a>
