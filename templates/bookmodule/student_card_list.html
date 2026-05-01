@@ -1,0 +1,10 @@
+<a href="{% url 'add_student_card' %}">Add Student Card</a>
+
+{% for card in cards %}
+  <p>{{ card.student_name }}</p>
+  <p>{{ card.card_title }}</p>
+
+  {% if card.image %}
+    <img src="{{ card.image.url }}" width="150">
+  {% endif %}
+{% endfor %}

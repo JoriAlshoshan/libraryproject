@@ -9,6 +9,13 @@ from .models import Publisher
 from django.db.models import OuterRef, Subquery
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BookForm
+from .models import StudentCard
+from .forms import StudentCardForm
+from .models import Student, Address
+from .forms import StudentForm, AddressForm
+from .models import Student2
+from .forms import Student2Form
+
 
 def index(request):
     name = request.GET.get("name") or "world!"
@@ -299,3 +306,94 @@ def delete_book_form(request, id):
     book = get_object_or_404(Book, id=id)
     book.delete()
     return redirect('list_books_form')
+
+
+
+
+def add_student_card(request):
+    form = StudentCardForm(request.POST or None, request.FILES or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('student_card_list')
+
+    return render(request, 'bookmodule/student_card_form.html', {'form': form})
+
+
+def student_card_list(request):
+    cards = StudentCard.objects.all()
+    return render(request, 'bookmodule/student_card_list.html', {'cards': cards})
+
+
+
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, 'bookmodule/student_list.html', {'students': students})
+
+
+def add_student(request):
+    form = StudentForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('student_list')
+
+    return render(request, 'bookmodule/student_form.html', {'form': form})
+
+
+def update_student(request, id):
+    student = get_object_or_404(Student, id=id)
+    form = StudentForm(request.POST or None, instance=student)
+
+    if form.is_valid():
+        form.save()
+        return redirect('student_list')
+
+    return render(request, 'bookmodule/student_form.html', {'form': form})
+
+
+def delete_student(request, id):
+    student = get_object_or_404(Student, id=id)
+
+    if request.method == 'POST':
+        student.delete()
+        return redirect('student_list')
+
+    return render(request, 'bookmodule/student_delete.html', {'student': student})
+
+
+
+def student2_list(request):
+    students = Student2.objects.all()
+    return render(request, 'bookmodule/student2_list.html', {'students': students})
+
+
+def add_student2(request):
+    form = Student2Form(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('student2_list')
+
+    return render(request, 'bookmodule/student2_form.html', {'form': form})
+
+
+def update_student2(request, id):
+    student = get_object_or_404(Student2, id=id)
+    form = Student2Form(request.POST or None, instance=student)
+
+    if form.is_valid():
+        form.save()
+        return redirect('student2_list')
+
+    return render(request, 'bookmodule/student2_form.html', {'form': form})
+
+
+def delete_student2(request, id):
+    student = get_object_or_404(Student2, id=id)
+
+    if request.method == 'POST':
+        student.delete()
+        return redirect('student2_list')
+
+    return render(request, 'bookmodule/student2_delete.html', {'student': student})
